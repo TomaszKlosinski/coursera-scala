@@ -1,2 +1,2 @@
 # coursera-scala
-Solutions to Coursera Scala's assignments
+Solutions and notes to Coursera Scala's assignments

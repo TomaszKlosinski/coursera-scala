@@ -16,7 +16,8 @@ N.                      first(1, loop) # loop evaluates to itself ad infinitum
 
 
 Scala:
-- normally use CBV (because CBV is exponentially more efficient than CBN by avoiding repeated computations)
+- normally use CBV
+  * because CBV is exponentially more efficient than CBN by avoiding repeated computations
 - but if function parameter starts with '=>', it uses CBN
 
 Example:

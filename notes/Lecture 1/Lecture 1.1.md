@@ -1,13 +1,13 @@
-# Lecture 1.1. Programming Paradigms 
+# Lecture 1.1. Programming Paradigms
 
 Programming paradigm = concept + patterns
 
-Programming paradigms:
-- imperative
-- functional
-- logic
+Main programming paradigms:
+- imperative (most common)
+- functional (new and fancy)
+- logic (not well-known)
 
-Object-oriented programming "paradigm" is orthogonal to these three main paradigms.
+Object-oriented programming "paradigm" is orthogonal to these three main paradigms. It can be used in all three cases.
 
 Imperative paradigm:
 - modifications of mutable variables
@@ -26,13 +26,14 @@ Problem: imperative paradigm doesn't scales up (Von Neumann bottleneck)
 Solution:
 - avoid conceptualizing programs and data structures word by word
 - high-level abstractions (e.g. collections, polynomials, geometric shapes, strings, documents, etc)
+- develop theories of high-level abstractions
 
 Theory consists of:
 - data types
 - operations of these data types
 - laws describing relationships between values and operations
 
-Theories shouldn't describe mutations
+Theories shouldn't describe mutations:
 - mathematical theories don't do that
 - programming theories unfortunately can do that
 
@@ -51,6 +52,6 @@ Functional programming:
   + examples: Scala
 
 Functions as first-class citizens:
-- functions can be defined anywhere, including inside other functions
+  - functions can be defined anywhere, including inside other functions
 - they can be passed as parameters to functions and returned as results from functions
 - there exists a set of operators to compose functions

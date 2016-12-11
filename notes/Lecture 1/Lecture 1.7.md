@@ -90,3 +90,13 @@ Tail Recursion
 => Tail recursive functions are iterative processes.
 
 - In general, if the last action of a function consists of a calling a function (which may be the same function), one stack frame would be sufficient for both functions. Such call are called tail-calls.
+
+
+1. Elements of FP in Scala:
+  - athmetic and boolean opeartions
+  - conditional expressions if-else
+  - functions with recursion
+  - nesting and lexical scope
+2. Difference between CBN and CBV evaluation strategies.
+3. Reason about program execution: reduce expressions using substitution model.
+4. This model will be important tool in coming sessions.

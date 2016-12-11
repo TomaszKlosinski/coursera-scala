@@ -1,17 +1,16 @@
 # Lecture 1.5. Example: square root with Newton's method
 
-Task
-
+Exercise
 /** Calculates the square root of parameter x \*/
-def sqrt(x: Double): Double = ...
+> def sqrt(x: Double): Double = ...
 
 - use successive approximation using Newton's method
 
+
 Newton's method
 
-To compute sqrt(x)
-
-1. Start with initial estimate (for instance y = 1)
+- To compute sqrt(x):
+1. Start with initial estimate (for instance y = 1.0)
 2. Repeatedly improve the estimate by taking the mean of y and x/y
 
 Example:

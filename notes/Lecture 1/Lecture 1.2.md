@@ -10,8 +10,8 @@ Read-Eval-Print Loop (REPL)
 - REPL = interactive shell
 - write expressions, get their results
 
-Scala REPL
-- sbt console
+Scala REPL:
+  > sbt console
 
 Evaluation
 - Non-primitive expression is evaluated in order:
@@ -32,13 +32,12 @@ Example:
 
 Parameters
 - Definitions can have parameters
-- Examples:
-scala> def square(x: Double) = x * x  # parameter "x" of type Double
+> def square(x: Double) = x * x  # parameter "x" of type Double
 
 Parameter and Return Types
 - type of function parameters is given after a colon, e.g. "x: Double"
-- type of return follows parameters list:
-def power(x: Double, y: Int): Double = ...
+- type of function's return follows parameters list:
+> def power(x: Double, y: Int): Double = ...
 
 Primitive types (as in Java, but capitalized)
 - Int - 32-bit integer

@@ -158,18 +158,15 @@ object Huffman {
    * the resulting list of characters.
    */
     def decode(tree: CodeTree, bits: List[Bit]): List[Char] = {
-      println("decode")
-      def decode0(currentTree: CodeTree, bits: List[Bit], acc: List[Char]): List[Char] = {
-        println(acc)
-        println(bits)
-        println(chars(currentTree))
-        currentTree match {
-          case Leaf (char, weight) => println("LEAF"); if (bits.isEmpty) char :: acc else decode0(tree, bits, char :: acc)
-          case Fork (left, right, chars, weight) => println("FORK"); if (bits.head == 0) decode0(left, bits.tail, chars.last :: acc) else decode0(right, bits.tail, chars.last :: acc)
+      def decode0(pTree: CodeTree, remainingBits: List[Bit], accu: List[Char]): List[Char] = {
+        (pTree, remainingBits) match {
+          case (pTree: Leaf, Nil) => accu :+ pTree.char
+          case (pTree: Leaf, rest) => decode0(tree, rest, accu :+ pTree.char)
+          case (pTree: Fork, 0 :: rest) => decode0(pTree.left, rest, accu)
+          case (pTree: Fork, 1 :: rest) => decode0(pTree.right, rest, accu)
         }
       }
-
-      decode0(tree, bits, Nil)
+      decode0(tree, bits, List())
     }
   
   /**
@@ -198,20 +195,14 @@ object Huffman {
    * into a sequence of bits.
    */
     def encode(tree: CodeTree)(text: List[Char]): List[Bit] = {
-      println("encode")
-      def encode0(currentTree: CodeTree, text: List[Char], acc: List[Bit]): List[Bit] = {
-        println(acc)
-        println(text)
-        println(chars(currentTree))
-        if (text.isEmpty) acc
-        else currentTree match {
-          case Leaf (char, weight) => println("LEAF"); encode0(tree, text.tail, acc)
-          case Fork (left, right, chars, weight) => println("FORK"); if (this.chars(left).contains(text.head)) encode0(left, text.tail, 0 :: acc) else encode0(right, text.tail, 1 :: acc)
+      def encodeChar(pTree: CodeTree, char: Char, accu: List[Bit]): List[Bit] = {
+        pTree match {
+          case pTree: Leaf => accu
+          case pTree: Fork if chars(pTree.left) contains char => encodeChar(pTree.left, char, accu :+ 0)
+          case pTree: Fork => encodeChar(pTree.right, char, accu :+ 1)
         }
       }
-
-      encode0(tree, text, Nil)
-//      List(0, 1)
+      text flatMap { c => encodeChar(tree, c, List()) }
     }
 
   // Part 4b: Encoding using code table
